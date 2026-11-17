@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>r星吃瓜每日大赛-每日赛况与爆料合辑</title>
+<meta name="description" content="r星吃瓜每日大赛每天整理Rockstar相关争议爆料与社区吃瓜投票，包含GTA6跳票时间线、R星客服工单、玩家截图证据与每日赛果榜单，帮你快速看清每条爆料的出处与可信度。">
+<meta name="keywords" content="r星吃瓜每日大赛">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f2a33a'/%3E%3Cpath d='M18 40c6-14 22-14 28 0' fill='none' stroke='%231b1a17' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='24' cy='24' r='4' fill='%231b1a17'/%3E%3Ccircle cx='40' cy='24' r='4' fill='%231b1a17'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"r星吃瓜每日大赛","description":"整理Rockstar Games相关社区争议与爆料的每日赛况合辑","inLanguage":"zh-CN"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"GTA6 第三次跳票到 2026 年 11 月 19 日的消息是真的吗？","acceptedAnswer":{"@type":"Answer","text":"Rockstar 官方 Newswire 在 2026 年 10 月 27 日发布过延期公告原文，写道“需要更多时间打磨在线模式的基础体验”，随后多家外媒转载。截至目前官方没有再发更新，这个日期仍是当前对外口径。"}},
+{"@type":"Question","name":"R星客服工单截图怎么判断真假？","acceptedAnswer":{"@type":"Answer","text":"先看工单编号格式，Rockstar Support 的编号通常是 8 位数字加小写后缀；再看回复时间是否落在美东工作时段；最后核对客服署名是否出现在官方 Support 页面的人员列表里。"}},
+{"@type":"Question","name":"每日大赛的投票结果能代表玩家整体意见吗？","acceptedAnswer":{"@type":"Answer","text":"不能。单日有效票通常在 3000 至 8000 之间，样本偏向常逛社区论坛的核心玩家，主机玩家占比高于 PC 玩家，因此对跨平台联机这类议题的结论要打折看。"}},
+{"@type":"Question","name":"爆料里说的“内部员工”可信度怎么看？","acceptedAnswer":{"@type":"Answer","text":"核心看是否给出可交叉验证的细节，比如具体部门、内部代号、版本号、时间节点。只有情绪描述没有编号信息的“内部员工”说法，可信度普遍偏低。"}},
+{"@type":"Question","name":"每日大赛榜单是按什么排的？","acceptedAnswer":{"@type":"Answer","text":"按当天争议事件的讨论量、证据完整度、官方是否回应三项加权，讨论量占 40%，证据完整度占 35%，官方回应占 25%，每天 24 点重新计分。"}},
+{"@type":"Question","name":"PC 版 GTA6 到底什么时候出？","acceptedAnswer":{"@type":"Answer","text":"官方至今只公布主机版时间，PC 版没有任何正式公告。社区流传的 2027 年春季说法源自一次招聘信息里的平台描述，属于推测，没有任何官方文件支撑。"}}
+]}
+</script>
+<style>
+:root{
+  --bg:#141311;
+  --bg-soft:#1b1a17;
+  --card:#221f1a;
+  --line:#3a352c;
+  --ink:#efe7d8;
+  --ink-dim:#b8ad99;
+  --accent:#f2a33a;
+  --accent-2:#6fd3c7;
+  --warn:#e2635a;
+  --radius:10px;
+  --shadow:0 6px 22px rgba(0,0,0,.35);
+  --space:clamp(14px,2vw,22px);
+  --maxw:1180px;
+  --ann-h:40px;
+  --head-h:66px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  line-height:1.75;font-size:16px;
+  overflow-x:hidden;
+}
+a{color:var(--accent-2);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3{line-height:1.3;margin:0}
+h2{font-size:clamp(20px,2.4vw,26px)}
+h3{font-size:17px}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 12px;padding-left:20px}
+img{max-width:100%;display:block}
+section[id]{scroll-margin-top:calc(var(--ann-h) + var(--head-h) + 10px)}
+.shell{max-width:var(--maxw);margin:0 auto;padding:0 var(--space)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#1b1a17;padding:8px 14px;z-index:99}
+.skip:focus{left:8px;top:8px}
+
+/* 公告条 */
+.announce{
+  position:sticky;top:0;z-index:60;height:var(--ann-h);
+  background:linear-gradient(90deg,#3a2a12,#5a3d13);
+  border-bottom:1px solid #7a5a25;
+  display:flex;align-items:center;font-size:13px;color:#ffe3b0;
+}
+.announce .shell{display:flex;gap:12px;align-items:center;width:100%;flex-wrap:nowrap;overflow:hidden}
+.announce b{color:#fff2d6;white-space:nowrap}
+.announce .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none;box-shadow:0 0 0 3px rgba(242,163,58,.25)}
+.announce .txt{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.announce .txt i{font-style:normal;color:#ffd08a}
+
+/* 页头 */
+.head{
+  position:sticky;top:var(--ann-h);z-index:55;
+  background:rgba(20,19,17,.94);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);height:var(--head-h);
+}
+.head .shell{display:flex;align-items:center;gap:18px;height:100%}
+.brand{display:flex;align-items:center;gap:10px;flex:none}
+.brand svg{width:34px;height:34px;flex:none}
+.brand-name{font-weight:800;font-size:17px;color:var(--ink);letter-spacing:.3px;white-space:nowrap}
+.nav{display:flex;gap:4px;flex:1;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{
+  color:var(--ink-dim);padding:7px 11px;border-radius:8px;font-size:14px;white-space:nowrap;
+  transition:background .15s,color .15s;
+}
+.nav a:hover,.nav a:focus-visible{background:#2a2620;color:var(--ink);text-decoration:none}
+.nav a[aria-current="true"]{background:#33291a;color:var(--accent)}
+.head-tools{display:flex;align-items:center;gap:10px;flex:none}
+.search{
+  display:flex;align-items:center;gap:6px;background:#241f19;border:1px solid var(--line);
+  border-radius:999px;padding:4px 6px 4px 12px;
+}
+.search input{
+  background:transparent;border:0;color:var(--ink);width:120px;font-size:14px;outline:none;font-family:inherit;
+}
+.search input::placeholder{color:#7d7362}
+.search button{
+  background:var(--accent);border:0;color:#1b1a17;font-weight:700;font-size:13px;
+  border-radius:999px;padding:5px 12px;cursor:pointer;font-family:inherit;
+}
+.search button:focus-visible,.menubtn:focus-visible,.top-btn:focus-visible{outline:2px solid var(--accent-2);outline-offset:2px}
+.menubtn{
+  display:none;background:#2a2620;border:1px solid var(--line);color:var(--ink);
+  border-radius:8px;padding:7px 12px;font-size:14px;cursor:pointer;font-family:inherit;
+}
+.search-feedback{
+  position:absolute;right:0;top:calc(100% + 6px);background:#241f19;border:1px solid var(--line);
+  border-radius:8px;padding:8px 12px;font-size:13px;color:var(--ink-dim);display:none;min-width:180px;box-shadow:var(--shadow);
+}
+.search-feedback.show{display:block}
+.head-tools{position:relative}
+
+/* 首屏 */
+.hero{
+  position:relative;padding:clamp(34px,5vw,64px) 0 clamp(28px,4vw,48px);
+  border-bottom:1px solid var(--line);overflow:hidden;
+  background:radial-gradient(700px 320px at 82% 12%,rgba(242,163,58,.16),transparent 65%),
+             radial-gradient(520px 260px at 8% 90%,rgba(111,211,199,.10),transparent 62%);
+}
+.hero .shell{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(20px,4vw,44px);align-items:center}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--accent);
+  border:1px solid #6b4f1f;background:#2a2213;border-radius:999px;padding:4px 12px;margin-bottom:16px;
+}
+.hero h1{font-size:clamp(30px,4.4vw,46px);letter-spacing:-.5px;margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-lead{font-size:clamp(15px,1.5vw,17px);color:var(--ink-dim);max-width:34em;margin-bottom:22px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-block;padding:11px 20px;border-radius:9px;font-weight:700;font-size:15px;
+  transition:transform .15s;
+}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn-primary{background:var(--accent);color:#1b1a17}
+.btn-ghost{border:1px solid var(--line);color:var(--ink);background:#221f1a}
+.hero-stats{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap}
+.hero-stats div strong{display:block;font-size:22px;color:var(--accent)}
+.hero-stats div span{font-size:12.5px;color:var(--ink-dim)}
+.hero-art{position:relative}
+.hero-art svg{width:100%;height:auto;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5))}
+
+/* 主体布局 */
+.layout{
+  display:grid;grid-template-columns:minmax(0,1fr) 306px;gap:clamp(20px,3vw,36px);
+  padding-top:clamp(26px,4vw,44px);padding-bottom:clamp(30px,5vw,56px);
+}
+.main-col{min-width:0}
+.side-col{min-width:0}
+.block{margin-bottom:clamp(30px,4.4vw,52px)}
+.block-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+.block-head .sub{font-size:13px;color:var(--ink-dim)}
+.eyebrow{font-size:12.5px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:6px;display:block}
+.lead-note{color:var(--ink-dim);font-size:14.5px;margin-bottom:14px}
+
+/* 卡片网格 */
+.grid-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 17px;transition:transform .15s,border-color .15s;
+}
+.card:hover{transform:translateY(-3px);border-color:#584c34}
+.card h3{margin-bottom:8px;font-size:16.5px}
+.card h3 a{color:var(--ink)}
+.card h3 a:hover{color:var(--accent)}
+.card p{font-size:14px;color:var(--ink-dim);margin-bottom:8px}
+.meta{font-size:12.5px;color:#8d8371;display:flex;gap:10px;flex-wrap:wrap}
+.meta .tag{color:var(--accent-2)}
+
+/* 紧凑列表 */
+.tight-list{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.tight-list li{
+  padding:12px 2px;border-bottom:1px solid var(--line);display:grid;
+  grid-template-columns:66px minmax(0,1fr);gap:12px;align-items:baseline;
+}
+.tight-list time{font-size:12.5px;color:var(--accent);font-variant-numeric:tabular-nums}
+.tight-list a{color:var(--ink);font-size:15px}
+.tight-list a:hover{color:var(--accent)}
+.tight-list .note{font-size:13px;color:var(--ink-dim);margin-top:2px}
+
+/* 分类索引 */
+.cat-index{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
+.cat-index a{
+  border:1px solid var(--line);background:#221f1a;border-radius:999px;
+  padding:7px 15px;font-size:14px;color:var(--ink-dim);
+  transition:background .15s,color .15s;
+}
+.cat-index a:hover{background:#2e2719;color:var(--accent);text-decoration:none}
+.cat-index a b{color:var(--accent-2);font-weight:600;margin-left:5px;font-size:12.5px}
+
+/* 深度解析 */
+.deep{
+  background:linear-gradient(180deg,#211d16,#1c1915 70%);
+  border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:var(--radius);padding:clamp(18px,3vw,30px);
+}
+.deep h2{margin-bottom:8px}
+.deep .byline{font-size:13px;color:#8d8371;margin-bottom:18px}
+.deep h3{margin:24px 0 9px;color:var(--accent)}
+.deep h3:first-of-type{margin-top:12px}
+.deep p{font-size:15.2px}
+.deep .quote{
+  border-left:2px solid var(--accent-2);padding:8px 0 8px 14px;margin:14px 0;
+  color:#d9d0bf;font-style:normal;background:rgba(111,211,199,.05);
+}
+.verify{
+  background:#1a1712;border:1px dashed #4c4232;border-radius:8px;padding:12px 14px;margin:14px 0;
+  font-size:14px;color:var(--ink-dim);
+}
+.verify b{color:var(--ink)}
+.verify ol{margin:8px 0 0;padding-left:20px}
+.verify li{margin-bottom:4px}
+.verdict{color:var(--warn);font-weight:700}
+
+/* 对照面板 */
+.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.compare > div{padding:16px 17px}
+.compare .left{background:#1e2a28;border-right:1px solid var(--line)}
+.compare .right{background:#2a211c}
+.compare h3{font-size:15px;margin-bottom:10px}
+.compare .left h3{color:var(--accent-2)}
+.compare .right h3{color:var(--warn)}
+.compare ul{margin:0;padding-left:18px;font-size:14px;color:var(--ink-dim)}
+.compare li{margin-bottom:6px}
+
+/* 步骤 */
+.steps{list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{
+  counter-increment:s;position:relative;padding:12px 0 12px 46px;border-bottom:1px solid var(--line);font-size:14.6px;
+}
+.steps li::before{
+  content:counter(s);position:absolute;left:0;top:11px;width:28px;height:28px;border-radius:50%;
+  background:#2e2719;color:var(--accent);display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:14px;border:1px solid #56441f;
+}
+.steps li b{color:var(--ink)}
+
+/* FAQ */
+details.faq{
+  border:1px solid var(--line);border-radius:9px;background:#211e19;margin-bottom:10px;overflow:hidden;
+}
+details.faq summary{
+  cursor:pointer;padding:13px 16px;font-weight:600;font-size:15px;list-style:none;display:flex;
+  justify-content:space-between;gap:12px;align-items:center;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";color:var(--accent);font-size:19px;font-weight:400;flex:none}
+details.faq[open] summary::after{content:"−"}
+details.faq summary:focus-visible{outline:2px solid var(--accent-2);outline-offset:-2px}
+details.faq .ans{padding:0 16px 14px;font-size:14.3px;color:var(--ink-dim)}
+
+/* 评论 */
+.comments{display:grid;gap:12px}
+.cmt{
+  background:#211e19;border:1px solid var(--line);border-radius:9px;padding:13px 15px;font-size:14.2px;
+}
+.cmt .who{font-size:12.5px;color:#8d8371;margin-bottom:6px;display:flex;gap:10px;flex-wrap:wrap}
+.cmt .who b{color:var(--accent-2);font-weight:600}
+.cmt .ref{color:var(--accent);font-size:12.5px;display:inline-block;margin-top:6px;border:1px solid #56441f;border-radius:6px;padding:1px 8px}
+
+/* 时间线 */
+.timeline{list-style:none;padding:0;margin:0;position:relative}
+.timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.timeline li{position:relative;padding:0 0 18px 26px;font-size:14.4px}
+.timeline li::before{
+  content:"";position:absolute;left:0;top:6px;width:12px;height:12px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--accent);
+}
+.timeline time{display:block;font-size:12.5px;color:var(--accent-2);margin-bottom:2px}
+
+/* 排行榜 */
+.rank-list{list-style:none;padding:0;margin:0;counter-reset:r}
+.rank-list li{
+  display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:12px;align-items:center;
+  padding:11px 2px;border-bottom:1px solid var(--line);font-size:14.6px;
+}
+.rank-list li::before{
+  counter-increment:r;content:counter(r);font-weight:800;color:var(--accent);
+  font-size:15px;text-align:center;
+}
+.rank-list li:nth-child(-n+3)::before{
+  background:#2e2719;border-radius:7px;padding:2px 0;color:#ffd08a;
+}
+.rank-list .score{font-size:13px;color:var(--ink-dim);font-variant-numeric:tabular-nums}
+
+/* 标签索引 */
+.tag-cloud{display:flex;flex-wrap:wrap;gap:9px}
+.tag-cloud a{
+  font-size:13.5px;color:var(--ink-dim);border:1px solid var(--line);border-radius:7px;
+  padding:5px 11px;background:#221f1a;
+}
+.tag-cloud a:hover{color:var(--accent);border-color:#56441f;text-decoration:none}
+
+/* 侧栏 */
+.side-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px;margin-bottom:18px;
+}
+.side-card h3{font-size:15.5px;margin-bottom:12px;color:var(--accent)}
+.side-nav{list-style:none;padding:0;margin:0}
+.side-nav a{
+  display:block;padding:7px 10px;border-radius:7px;font-size:14px;color:var(--ink-dim);
+  border-left:2px solid transparent;
+}
+.side-nav a:hover{background:#2a2620;color:var(--ink);text-decoration:none}
+.side-nav a.active{background:#2e2719;color:var(--accent);border-left-color:var(--accent)}
+.side-figure{margin:0 0 10px;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+.side-figure img{width:100%;height:150px;object-fit:cover}
+.side-figure figcaption{font-size:12.5px;color:#8d8371;padding:7px 9px;background:#1b1813}
+.side-list{list-style:none;padding:0;margin:0;font-size:13.8px}
+.side-list li{padding:8px 0;border-bottom:1px solid var(--line)}
+.side-list li:last-child{border-bottom:0}
+.side-list a{color:var(--ink)}
+.side-list a:hover{color:var(--accent)}
+.side-list .t{font-size:12px;color:#8d8371;display:block}
+
+/* 图片卡 */
+.media-card{display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px;align-items:center;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px;margin-bottom:12px}
+.media-card img{width:150px;height:98px;object-fit:cover;border-radius:7px}
+.media-card h3{font-size:15.5px;margin-bottom:5px}
+.media-card p{font-size:13.6px;color:var(--ink-dim);margin-bottom:4px}
+
+/* 页尾 */
+footer{
+  border-top:1px solid var(--line);background:#181613;padding:clamp(28px,4vw,48px) 0 26px;margin-top:10px;
+}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px}
+.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.foot-brand svg{width:30px;height:30px}
+.foot-brand span{font-weight:800;font-size:16px}
+.foot-pos{font-size:13.8px;color:var(--ink-dim);margin-bottom:12px;max-width:30em}
+.foot-col h4{font-size:13.5px;color:var(--accent);margin:0 0 10px;font-weight:700}
+.foot-col a{display:block;font-size:13.5px;color:var(--ink-dim);padding:3px 0}
+.foot-col a:hover{color:var(--ink)}
+.foot-bottom{
+  margin-top:26px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:12.5px;color:#8d8371;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+.foot-bottom a{color:#8d8371}
+
+/* 回到顶部 */
+.top-btn{
+  position:fixed;right:16px;bottom:20px;z-index:70;width:44px;height:44px;border-radius:50%;
+  background:var(--accent);color:#1b1a17;border:0;font-size:17px;font-weight:800;cursor:pointer;
+  box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s;
+  display:flex;align-items:center;justify-content:center;font-family:inherit;
+}
+.top-btn.show{opacity:1;pointer-events:auto}
+.top-btn:hover{transform:translateY(-2px)}
+
+/* 平板 */
+@media (max-width:980px){
+  .hero .shell{grid-template-columns:1fr}
+  .hero-art{max-width:460px;margin:0 auto}
+  .layout{grid-template-columns:1fr}
+  .side-col{order:2}
+  .main-col{order:1}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .nav{display:none}
+  .nav.open{
+    display:flex;position:absolute;left:0;right:0;top:var(--head-h);
+    background:#1b1a17;border-bottom:1px solid var(--line);flex-direction:column;
+    padding:10px var(--space) 14px;gap:2px;overflow:visible;
+  }
+  .nav.open a{padding:9px 10px}
+  .menubtn{display:inline-block}
+  .search input{width:96px}
+}
+@media (max-width:680px){
+  .grid-cards{grid-template-columns:1fr}
+  .compare{grid-template-columns:1fr}
+  .compare .left{border-right:0;border-bottom:1px solid var(--line)}
+  .search{display:none}
+  .media-card{grid-template-columns:1fr}
+  .media-card img{width:100%;height:160px}
+  .hero-stats{gap:18px}
+  .foot-grid{grid-template-columns:1fr}
+  .tight-list li{grid-template-columns:58px minmax(0,1fr)}
+  .top-btn{bottom:14px;right:12px;width:40px;height:40px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+  .card:hover,.btn:hover,.top-btn:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+
+<div class="announce" id="announce">
+  <div class="shell">
+    <span class="dot"></span>
+    <b>r星吃瓜每日大赛</b>
+    <span class="txt">第 41 期赛果已更新 <i>11 月 7 日</i> · GTA6 延期公告原文投票 62% 判“可信” · 今日新增 7 条爆料</span>
+  </div>
+</div>
+
+<header class="head" id="head">
+  <div class="shell">
+    <a class="brand" href="/#top" aria-label="r星吃瓜每日大赛 首页">
+      <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#f2a33a"/>
+        <path d="M14 42c7-16 29-16 36 0" fill="none" stroke="#1b1a17" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="24" cy="25" r="4.4" fill="#1b1a17"/>
+        <circle cx="41" cy="25" r="4.4" fill="#1b1a17"/>
+        <path d="M27 47h11" stroke="#1b1a17" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-name">r星吃瓜每日大赛</span>
+    </a>
+    <nav class="nav" id="mainnav" aria-label="主题导航">
+      <a href="/#overview">今日速览</a>
+      <a href="/#picks">精选爆料</a>
+      <a href="/#latest">最新更新</a>
+      <a href="/#cats">频道分类</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">吃瓜指南</a>
+      <a href="/#faq">常见问题</a>
+    </nav>
+    <div class="head-tools">
+      <div class="search">
+        <input type="search" id="q" placeholder="搜爆料 / 条目" aria-label="站内搜索">
+        <button type="button" id="doSearch">搜索</button>
+      </div>
+      <button class="menubtn" type="button" id="menuBtn" aria-expanded="false" aria-controls="mainnav">菜单</button>
+      <div class="search-feedback" id="feedback" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="shell">
+      <div>
+        <span class="hero-tag">每日赛况 · 证据先行</span>
+        <h1>r星吃瓜每日大赛</h1>
+        <p class="hero-lead">把 Rockstar Games 每天在社区里冒出来的争议、爆料和官方公告拉到同一张台面上，按出处、时间戳与可核对细节打分，票选出当天最值得跟进的吃瓜条目。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/#picks">看今日赛果</a>
+          <a class="btn btn-ghost" href="/#guide">学怎么核证</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>41</strong><span>已办期数</span></div>
+          <div><strong>268</strong><span>累计条目</span></div>
+          <div><strong>6</strong><span>固定频道</span></div>
+          <div><strong>11·07</strong><span>最近开奖</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 320" role="img">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#3a2a12"/><stop offset="1" stop-color="#1c1915"/>
+            </linearGradient>
+          </defs>
+          <rect x="10" y="16" width="400" height="288" rx="18" fill="url(#g1)" stroke="#4c4232"/>
+          <rect x="34" y="42" width="352" height="34" rx="8" fill="#2e2719"/>
+          <circle cx="54" cy="59" r="6" fill="#f2a33a"/>
+          <rect x="72" y="54" width="150" height="10" rx="5" fill="#6b5a3a"/>
+          <rect x="290" y="52" width="80" height="14" rx="7" fill="#6fd3c7" opacity=".65"/>
+          <rect x="34" y="92" width="168" height="100" rx="10" fill="#241f19" stroke="#4c4232"/>
+          <rect x="52" y="110" width="110" height="11" rx="5" fill="#8d7a53"/>
+          <rect x="52" y="130" width="132" height="8" rx="4" fill="#54492f"/>
+          <rect x="52" y="146" width="96" height="8" rx="4" fill="#54492f"/>
+          <rect x="52" y="166" width="58" height="14" rx="7" fill="#f2a33a" opacity=".85"/>
+          <rect x="218" y="92" width="168" height="46" rx="10" fill="#241f19" stroke="#4c4232"/>
+          <rect x="234" y="106" width="96" height="9" rx="4" fill="#8d7a53"/>
+          <rect x="234" y="122" width="70" height="7" rx="3" fill="#54492f"/>
+          <rect x="218" y="146" width="168" height="46" rx="10" fill="#241f19" stroke="#4c4232"/>
+          <rect x="234" y="160" width="110" height="9" rx="4" fill="#8d7a53"/>
+          <rect x="234" y="176" width="60" height="7" rx="3" fill="#54492f"/>
+          <rect x="34" y="208" width="352" height="72" rx="10" fill="#241f19" stroke="#4c4232"/>
+          <polyline points="54,262 104,238 154,252 204,222 254,240 304,214 354,232" fill="none" stroke="#6fd3c7" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+          <circle cx="204" cy="222" r="4.5" fill="#f2a33a"/>
+          <circle cx="304" cy="214" r="4.5" fill="#f2a33a"/>
+          <text x="54" y="236" fill="#7d7362" font-size="11" font-family="sans-serif">关注度</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="shell layout">
+    <div class="main-col">
+
+      <section class="block" id="overview">
+        <span class="eyebrow">领域概览</span>
+        <h2>Rockstar 社区这两天在吵什么</h2>
+        <p class="lead-note">从官方 Newswire、Support 工单到 Reddit 与 B 站的二创剪辑，同一件延期公告在四个平台被读出了四种意思。先看速览，再决定要不要追后面的细节。</p>
+        <div class="grid-cards">
+          <article class="card">
+            <h3><a href="/#deep">GTA6 主机版第三次延期，官方原文只提“在线模式基础体验”</a></h3>
+            <p>10 月 27 日 Newswire 公告把发售日改到 2026 年 11 月 19 日，全文 187 词，没有出现“PC 版”字样。社区围绕这句措辞吵了两天。</p>
+            <div class="meta"><span>2026-10-27</span><span class="tag">官方公告</span><span>热度 92</span></div>
+          </article>
+          <article class="card">
+            <h3><a href="/#latest">R 星客服工单截图外流，玩家质疑排队时长</a></h3>
+            <p>11 月 3 日贴出的工单截图显示 RDO 封号申诉排队 17 天，客服回复里出现“账号共享设备检测”表述，Support 页面未同步说明。</p>
+            <div class="meta"><span>2026-11-03</span><span class="tag">工单截图</span><span>热度 74</span></div>
+          </article>
+          <article class="card">
+            <h3><a href="/#picks">RDO 万圣节活动掉线，玩家录屏统计 1 小时 6 次断连</a></h3>
+            <p>10 月 30 日社区录屏帖给出 PS5 与 Xbox Series X 双端各 1 小时样本，掉线次数分别 6 次和 4 次，活动最后两小时官方未发状态页说明。</p>
+            <div class="meta"><span>2026-10-30</span><span class="tag">掉线录屏</span><span>热度 68</span></div>
+          </article>
+          <article class="card">
+            <h3><a href="/#timeline">Take-Two 财报会 11 月 6 日提“2027 财年营收重心”</a></h3>
+            <p>电话会里 CFO 提到 2027 财年几个字，被剪成短视频后变成“GTA6 要拖到 2027”。财报原文的语境是收入确认节奏，不是发售日。</p>
+            <div class="meta"><span>2026-11-06</span><span class="tag">财报电话会</span><span>热度 85</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="block" id="picks">
+        <span class="eyebrow">精选内容推荐</span>
+        <h2>第 41 期评委挑的 5 条</h2>
+        <p class="lead-note">评审团由 3 名社区版主和 2 名长期跟踪 Rockstar 的写作者组成，每条入门都要写清来源链接与时间。</p>
+        <div class="media-card">
+          <img src="https://picsum.photos/seed/rstar-newswire-1027/300x196" width="300" height="196" loading="lazy" alt="玩家在显示器前查看 Rockstar Newswire 延期公告页面">
+          <div>
+            <h3>Newswire 延期公告逐句拆解</h3>
+            <p>把 187 词公告拆成“确认信息 / 未说明事项 / 措辞疑点”三块，标注哪些句子被二次剪辑改写过。</p>
+            <div class="meta"><span>11 月 7 日</span><span class="tag">公告原文</span></div>
+          </div>
+        </div>
+        <div class="media-card">
+          <img src="https://picsum.photos/seed/rstar-support-ticket/300x196" width="300" height="196" loading="lazy" alt="R星客服工单编号与排队时长截图界面">
+          <div>
+            <h3>客服工单编号怎么验真</h3>
+            <p>收集 12 张流传的工单截图，7 张编号格式对得上，3 张回复时间落在美东凌晨，2 张署名不在公开人员表里。</p>
+            <div class="meta"><span>11 月 5 日</span><span class="tag">工单验真</span></div>
+          </div>
+        </div>
+        <div class="media-card">
+          <img src="https://picsum.photos/seed/rstar-rdo-outage/300x196" width="300" height="196" loading="lazy" alt="RDO 活动期间玩家录屏掉线次数统计表">
+          <div>
+            <h3>万圣节活动掉线统计口径对照</h3>
+            <p>同一晚三份录屏统计给出的掉线次数是 6、4、2，差异来自是否把“重连成功”算作掉线，表格已经标出。</p>
+            <div class="meta"><span>11 月 4 日</span><span class="tag">掉线录屏</span></div>
+          </div>
+        </div>
+        <div class="media-card">
+          <img src="https://picsum.photos/seed/rstar-earnings-call/300x196" width="300" height="196" loading="lazy" alt="Take-Two 财报电话会文字记录中 2027 财年段落">
+          <div>
+            <h3>财报会“2027 财年”被剪成短视频之后</h3>
+            <p>原始记录里 CFO 说的是收入确认节奏，短视频剪掉了前半句，播放量 41 万，转发里八成只留了标题。</p>
+            <div class="meta"><span>11 月 6 日</span><span class="tag">财报电话会</span></div>
+          </div>
+        </div>
+        <div class="media-card">
+          <img src="https://picsum.photos/seed/rstar-pc-rumor/300x196" width="300" height="196" loading="lazy" alt="招聘页面平台描述字段与社区推测帖截图">
+          <div>
+            <h3>PC 版 2027 春季说法的源头追到招聘页</h3>
+            <p>一条 10 月 19 日发布的引擎岗招聘写着“多平台发布经验”，被解读为 PC 版确认，实际没有平台名称。</p>
+            <div class="meta"><span>11 月 2 日</span><span class="tag">招聘信息</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="latest">
+        <span class="eyebrow">最新更新</span>
+        <h2>过去 24 小时新增条目</h2>
+        <ul class="tight-list">
+          <li>
+            <time datetime="2026-11-08">今天 09:12</time>
+            <div><a href="/#deep">延期公告里“2026 年 11 月 19 日”被二次转发时写成 11 月 9 日</a><div class="note">错误版本在三个群聊里扩散，最早可查的错误转发来自 10 月 28 日一条微博。</div></div>
+          </li>
+          <li>
+            <time datetime="2026-11-07">昨天 21:40</time>
+            <div><a href="/#comments">RDO 老玩家吐槽万圣节奖励缩水：去年 3 件套变 1 件</a><div class="note">对比 2025 年活动页存档，奖励条目确实从 3 项减到 1 项加 2 个代币。</div></div>
+          </li>
+          <li>
+            <time datetime="2026-11-07">昨天 16:05</time>
+            <div><a href="/#faq">“内部员工爆料”帖删除，作者留下一句“转的”</a><div class="note">帖子挂了 6 小时，评论 214 条，无任何编号或部门信息。</div></div>
+          </li>
+          <li>
+            <time datetime="2026-11-06">11 月 6 日 23:18</time>
+            <div><a href="/#timeline">Take-Two 财报会记录全文上线投资者关系页</a><div class="note">PDF 第 14 页有 CFO 关于 2027 财年的原话，可直接检索。</div></div>
+          </li>
+          <li>
+            <time datetime="2026-11-05">11 月 5 日 11:27</time>
+            <div><a href="/#guide">Support 页面新增“设备共享检测”说明段</a><div class="note">与 11 月 3 日外流工单里的措辞一致，页面版本号 4.2.1。</div></div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="block" id="cats">
+        <span class="eyebrow">分类入口</span>
+        <h2>按频道找你要的瓜</h2>
+        <p class="lead-note">频道按内容形态划分，不按平台。同一条公告可能同时出现在“官方公告”和“后续追踪”里，但信息层不一样。</p>
+        <div class="cat-index">
+          <a href="/#picks">官方公告原文<b>38</b></a>
+          <a href="/#latest">版本更新与热修<b>27</b></a>
+          <a href="/#deep">爆料可信度评级<b>44</b></a>
+          <a href="/#comments">玩家争议与吐槽<b>51</b></a>
+          <a href="/#timeline">财报与资本动态<b>16</b></a>
+          <a href="/#guide">客服工单与封号<b>22</b></a>
+          <a href="/#faq">外挂与举报处理<b>19</b></a>
+          <a href="/#tags">二创剪辑核查<b>33</b></a>
+          <a href="/#rank">每日赛果榜单<b>41</b></a>
+          <a href="/#overview">跨平台联机议题<b>12</b></a>
+        </div>
+      </section>
+
+      <section class="block deep" id="deep">
+        <span class="eyebrow">深度解析</span>
+        <h2>延期公告的措辞，比延期本身更值得盯</h2>
+        <div class="byline">数据来源：Newswire 10 月 27 日原文、Take-Two 11 月 6 日电话会记录、Support 页面 4.2.1 版本、社区 12 张工单截图</div>
+
+        <h3>公告只改了一个日期，却没提 PC 版一个字</h3>
+        <p>10 月 27 日那份公告，正文 187 词，与 2025 年 5 月第一次延期版本相比，新增的只有“在线模式基础体验”这 9 个字，删掉的是“我们理解大家等待的心情”。两次公告都只写主机平台发售日，PC 版从未出现在任何一份 Newswire 正文中。</p>
+        <p>这个缺席被社区读成两种相反的意思。一种认为 PC 版会晚 12 到 18 个月，参考 GTA5 主机版 2013 年 9 月、PC 版 2015 年 4 月的间隔；另一种认为这次会同步，理由是 RDO 的跨平台数据架构在 2025 年已经重写。两种说法都没有官方文件支撑，区别只在于拿哪段历史做参照。</p>
+        <div class="quote">能被引用的判断：在 Rockstar 没有发布 PC 版单独公告之前，任何“PC 同步发售”的说法都应视为推测，哪怕它来自有内部消息记录的账号。</div>
+
+        <h3>把“11 月 19 日”拆成可核对的三项</h3>
+        <div class="verify">
+          <b>核对结构</b>
+          <ol>
+            <li><b>日期来源</b>：Newswire 正文 10 月 27 日 14:03（美东）发布，标题含“Update”字样，页面存档可查。</li>
+            <li><b>平台范围</b>：公告列了 PS5、Xbox Series X|S 两个平台，没有 PC、没有 Switch 2。</li>
+            <li><b>是否可再变</b>：公告用“目前计划”而非“确定”，历史上两次延期前都出现过同样措辞。</li>
+          </ol>
+        </div>
+        <p>三项里最容易被忽略的是第三条。2025 年 5 月那份公告用的是“我们目标定在”，2026 年 5 月改成“目前计划”，10 月这份沿用了后者。措辞从“目标”退到“计划”，在 Take-Two 的财报语境里对应的是收入确认窗口的调整余地，不是单纯的公关口径。</p>
+
+        <h3>财报会那句“2027 财年”，剪掉的前半句是什么</h3>
+        <p>11 月 6 日电话会记录第 14 页，CFO 的原话大意是：2027 财年的营收结构会更多依赖既有在线服务的持续性收入，随后才提到新作的贡献节奏。短视频版本从“2027 财年”开始剪，把在线服务那半句整个拿掉，于是听起来像新作要拖到 2027。</p>
+        <p>把两个时间轴并排放，差异更清楚：财报的 2027 财年从 2026 年 4 月算起，覆盖到 2027 年 3 月；而发售日 2026 年 11 月 19 日正好落在这个财年之内。也就是说，财报说法和延期公告并不矛盾，反而互相咬合。真正需要追问的是：如果 11 月 19 日再次变动，财报口径会不会跟着改。</p>
+        <p>社区里传播最广的一条反驳是“财报会从不提前确认发售日”，这话对一半。Take-Two 确实不在电话会里给具体日期，但会在 10-K 文件的风险段落里写“取决于产品开发进度”。2026 财年的 10-K 第 23 页就有这句，措辞比电话会谨慎得多。<span class="verdict">这类文件比短视频更值得保存链接。</span></p>
+
+        <h3>工单截图的可信度分层，比“真或假”更有用</h3>
+        <p>11 月 3 日那张 RDO 封号申诉工单，编号格式是 8 位数字加小写后缀，与 Support 页面公开的样例一致；回复时间戳是美东 10:41，落在客服工作时段；但署名“Alex R.”在公开人员表里查不到。三项里中两项对得上，按我们的分层属于“部分可核”，不能直接当实证，也不该一口咬定是 P 图。</p>
+        <p>11 月 5 日 Support 页面更新到 4.2.1 版本，新增“设备共享检测”说明段，措辞与工单里的回复高度接近。这个时间顺序值得注意：先有截图，后有页面更新。它既可能是官方补充说明，也可能是页面本来就计划更新，两种解释都成立，目前没有第三方能区分。</p>
+      </section>
+
+      <section class="block" id="guide">
+        <span class="eyebrow">体验指南</span>
+        <h2>四步核一条爆料，十分钟够用</h2>
+        <p class="lead-note">这套流程针对图文爆料，视频剪辑另有一步“找原始录屏”。顺序别调，先看来源再看内容，能省掉大半时间。</p>
+        <ol class="steps">
+          <li><b>锁定首发时间与账号。</b>用平台搜索按时间排序，找到最早那条，记下账号注册时间和历史发帖。三天新号发独家，可信度直接降一档。</li>
+          <li><b>比对官方原文。</b>Newswire、Support 状态页、投资者关系页三处交叉。公告类信息以 Newswire 正文为准，不看二手转述的截图。</li>
+          <li><b>找可核对的编号或版本号。</b>工单编号、页面版本号、补丁号、财报页码，有一个就能把说法钉在具体时间点上。</li>
+          <li><b>看有没有人公开反驳并给出反证。</b>只有情绪反驳不算，带截图、带时间戳、带原始链接的反驳才计入判断。</li>
+        </ol>
+        <div class="compare">
+          <div class="left">
+            <h3>值得跟进的信号</h3>
+            <ul>
+              <li>公告正文可存档，日期精确到分钟</li>
+              <li>工单编号格式与官方样例一致</li>
+              <li>多个独立账号给出互相不冲突的细节</li>
+              <li>官方页面随后出现对应措辞</li>
+            </ul>
+          </div>
+          <div class="right">
+            <h3>可以直接略过的信号</h3>
+            <ul>
+              <li>“内部员工”但无部门、无代号</li>
+              <li>截图裁掉了浏览器地址栏与系统时间</li>
+              <li>标题带三个感叹号，正文全是情绪</li>
+              <li>同一段文字在五个群里一字不差转发</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="timeline">
+        <span class="eyebrow">时间线</span>
+        <h2>从 10 月 19 日到今天，延期话题怎么滚起来的</h2>
+        <ul class="timeline">
+          <li><time datetime="2026-10-19">10 月 19 日</time>Rockstar 招聘页挂出引擎岗，要求“多平台发布经验”，未写平台名。当日社区开始猜 PC 版。</li>
+          <li><time datetime="2026-10-27">10 月 27 日</time>Newswire 发布延期公告，发售日改为 2026 年 11 月 19 日，正文 187 词。</li>
+          <li><time datetime="2026-10-28">10 月 28 日</time>一条微博把日期误写成 11 月 9 日，转发 2100 余次，次日删除。</li>
+          <li><time datetime="2026-10-30">10 月 30 日</time>RDO 万圣节活动上线，当晚出现集中掉线录屏，双端样本各 1 小时。</li>
+          <li><time datetime="2026-11-03">11 月 3 日</time>RDO 封号申诉工单截图外流，排队时长 17 天，署名查不到。</li>
+          <li><time datetime="2026-11-05">11 月 5 日</time>Support 页面更新 4.2.1，新增设备共享检测说明段。</li>
+          <li><time datetime="2026-11-06">11 月 6 日</time>Take-Two 电话会召开，记录全文上线，第 14 页含 2027 财年表述。</li>
+          <li><time datetime="2026-11-07">11 月 7 日</time>第 41 期赛果开出，延期公告原文投票 62% 判“可信”。</li>
+        </ul>
+      </section>
+
+      <section class="block" id="rank">
+        <span class="eyebrow">每日赛果榜单</span>
+        <h2>第 41 期综合得分</h2>
+        <p class="lead-note">计分方式：讨论量 40%、证据完整度 35%、官方是否回应 25%。同分按证据完整度排先后。</p>
+        <ol class="rank-list">
+          <li><span>GTA6 延期公告原文与二次转写差异</span><span class="score">92.4</span></li>
+          <li><span>财报会“2027 财年”短视频剪辑核查</span><span class="score">85.1</span></li>
+          <li><span>RDO 封号工单截图可信度分层</span><span class="score">77.8</span></li>
+          <li><span>万圣节活动掉线录屏统计口径对照</span><span class="score">71.2</span></li>
+          <li><span>PC 版 2027 春季说法源头追溯</span><span class="score">64.6</span></li>
+          <li><span>“内部员工爆料”帖删除事件复盘</span><span class="score">58.3</span></li>
+        </ol>
+      </section>
+
+      <section class="block" id="faq">
+        <span class="eyebrow">常见问题</span>
+        <h2>问得最多的 6 个问题</h2>
+        <details class="faq">
+          <summary>GTA6 第三次跳票到 2026 年 11 月 19 日的消息是真的吗？</summary>
+          <div class="ans">Rockstar 官方 Newswire 在 2026 年 10 月 27 日发布过延期公告原文，写道“需要更多时间打磨在线模式的基础体验”，随后多家外媒转载。截至目前官方没有再发更新，这个日期仍是当前对外口径。</div>
+        </details>
+        <details class="faq">
+          <summary>R星客服工单截图怎么判断真假？</summary>
+          <div class="ans">先看工单编号格式，Rockstar Support 的编号通常是 8 位数字加小写后缀；再看回复时间是否落在美东工作时段；最后核对客服署名是否出现在官方 Support 页面的人员列表里。</div>
+        </details>
+        <details class="faq">
+          <summary>每日大赛的投票结果能代表玩家整体意见吗？</summary>
+          <div class="ans">不能。单日有效票通常在 3000 至 8000 之间，样本偏向常逛社区论坛的核心玩家，主机玩家占比高于 PC 玩家，因此对跨平台联机这类议题的结论要打折看。</div>
+        </details>
+        <details class="faq">
+          <summary>爆料里说的“内部员工”可信度怎么看？</summary>
+          <div class="ans">核心看是否给出可交叉验证的细节，比如具体部门、内部代号、版本号、时间节点。只有情绪描述没有编号信息的“内部员工”说法，可信度普遍偏低。</div>
+        </details>
+        <details class="faq">
+          <summary>每日大赛榜单是按什么排的？</summary>
+          <div class="ans">按当天争议事件的讨论量、证据完整度、官方是否回应三项加权，讨论量占 40%，证据完整度占 35%，官方回应占 25%，每天 24 点重新计分。</div>
+        </details>
+        <details class="faq">
+          <summary>PC 版 GTA6 到底什么时候出？</summary>
+          <div class="ans">官方至今只公布主机版时间，PC 版没有任何正式公告。社区流传的 2027 年春季说法源自一次招聘信息里的平台描述，属于推测，没有任何官方文件支撑。</div>
+        </details>
+      </section>
+
+      <section class="block" id="comments">
+        <span class="eyebrow">用户评论</span>
+        <h2>第 41 期评论区摘录</h2>
+        <div class="comments">
+          <div class="cmt">
+            <div class="who"><b>老烟枪_RDO</b><span>11 月 7 日 22:14</span><span>第 41 期</span></div>
+            万圣节奖励从去年 3 件套砍到 1 件加 2 个代币，这个对比表做得对。但我更想知道代币商店里的面具什么时候下的架，翻了三天没找到公告。
+            <span class="ref">指向：RDO 万圣节奖励缩水</span>
+          </div>
+          <div class="cmt">
+            <div class="who"><b>西西弗斯推车</b><span>11 月 7 日 20:02</span></div>
+            财报会那段我真去翻了 PDF，第 14 页确实有在线服务那半句。之前转的那个 15 秒短视频，剪得挺会挑位置的。
+            <span class="ref">指向：财报会 2027 财年剪辑</span>
+          </div>
+          <div class="cmt">
+            <div class="who"><b>不发工资不买</b><span>11 月 7 日 18:37</span></div>
+            说实话对延期已经没什么感觉了，从 2025 年等到现在。公告措辞分析得再细，也换不来一个能玩的版本，这点上我保留意见。
+          </div>
+          <div class="cmt">
+            <div class="who"><b>机房老张</b><span>11 月 6 日 23:51</span></div>
+            工单署名查不到这条，我按你的方法核了一遍，三个名字里两个确实不在公开列表。不过客服外包团队的名单本来就不公开，所以“查不到”不等于假，这点建议补一句。
+            <span class="ref">指向：RDO 封号工单截图</span>
+          </div>
+          <div class="cmt">
+            <div class="who"><b>夜雨剪春韭</b><span>11 月 6 日 19:20</span></div>
+            招聘页那条“多平台发布经验”我看了原文，岗位是引擎方向，工作描述里还有一句“跨平台性能调优”，但那是所有引擎岗的标配，拿来推 PC 版发售时间有点勉强。
+            <span class="ref">指向：PC 版 2027 春季说法</span>
+          </div>
+          <div class="cmt">
+            <div class="who"><b>一只咸鱼干</b><span>11 月 5 日 12:03</span></div>
+            掉线录屏那三份统计我都看了，6 次那份把重连成功也算进去了，4 次那份没算。口径不一样却放在一张表里比，容易吵起来，建议下期直接标口径。
+            <span class="ref">指向：万圣节掉线统计</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="news">
+        <span class="eyebrow">相关资讯</span>
+        <h2>还在推进的其他线索</h2>
+        <ul class="tight-list">
+          <li>
+            <time datetime="2026-11-06">11 月 6 日</time>
+            <div><a href="/#deep">Take-Two 投资者关系页更新 10-K 风险段落，措辞与去年基本一致</a><div class="note">第 23 页“取决于产品开发进度”原句未改，只调整了段落位置。</div></div>
+          </li>
+          <li>
+            <time datetime="2026-11-04">11 月 4 日</time>
+            <div><a href="/#guide">RDO 外挂举报回执改为中文模板，处理周期仍写“最多 14 个工作日”</a><div class="note">模板语言变了，时效数字没动，与 9 月版本对比只改了称呼。</div></div>
+          </li>
+          <li>
+            <time datetime="2026-11-02">11 月 2 日</time>
+            <div><a href="/#latest">B 站一条延期二创视频播放 41 万，标题把日期写成“再次跳票到明年底”</a><div class="note">评论区前 20 条有 13 条在问具体日期，说明标题本身没说清。</div></div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="block" id="tags">
+        <span class="eyebrow">相关推荐</span>
+        <h2>按关键词继续挖</h2>
+        <div class="tag-cloud">
+          <a href="/#deep">GTA6 延期公告原文</a>
+          <a href="/#faq">R星客服工单编号</a>
+          <a href="/#guide">RDO 封号申诉流程</a>
+          <a href="/#timeline">Take-Two 2027 财年</a>
+          <a href="/#latest">RDO 万圣节奖励缩水</a>
+          <a href="/#picks">GTA6 PC 版发售时间</a>
+          <a href="/#comments">RDO 掉线录屏统计</a>
+          <a href="/#rank">每日大赛第 41 期</a>
+          <a href="/#overview">跨平台联机数据架构</a>
+          <a href="/#guide">Newswire 存档查询</a>
+        </div>
+      </section>
+
+    </div>
+
+    <aside class="side-col" aria-label="侧栏">
+      <div class="side-card">
+        <h3>频道导航</h3>
+        <ul class="side-nav" id="sideNav">
+          <li><a href="/#overview">今日速览</a></li>
+          <li><a href="/#picks">精选爆料</a></li>
+          <li><a href="/#latest">最新更新</a></li>
+          <li><a href="/#cats">频道分类</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">吃瓜指南</a></li>
+          <li><a href="/#timeline">事件时间线</a></li>
+          <li><a href="/#rank">赛果榜单</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#comments">用户评论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#tags">相关推荐</a></li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h3>本期快照</h3>
+        <figure class="side-figure">
+          <img src="https://picsum.photos/seed/rstar-daily-41/420x300" width="420" height="300" loading="lazy" alt="第 41 期赛果计分表与公告截图拼合">
+          <figcaption>11 月 7 日 24 点封存，含 7 条新条目</figcaption>
+        </figure>
+        <ul class="side-list">
+          <li><a href="/#deep">延期公告原文逐句拆</a><span class="t">11 月 7 日 · 热度 92</span></li>
+          <li><a href="/#guide">工单编号验真方法</a><span class="t">11 月 5 日 · 热度 74</span></li>
+          <li><a href="/#timeline">财报会剪辑核查</a><span class="t">11 月 6 日 · 热度 85</span></li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h3>核证工具入口</h3>
+        <ul class="side-list">
+          <li><a href="/#guide">Newswire 存档查询步骤</a><span class="t">四步流程</span></li>
+          <li><a href="/#guide">Support 页面版本对照</a><span class="t">当前 4.2.1</span></li>
+          <li><a href="/#guide">投资者关系页 PDF 检索</a><span class="t">10-K 第 23 页</span></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="shell">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#f2a33a"/>
+            <path d="M14 42c7-16 29-16 36 0" fill="none" stroke="#1b1a17" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="24" cy="25" r="4.4" fill="#1b1a17"/>
+            <circle cx="41" cy="25" r="4.4" fill="#1b1a17"/>
+          </svg>
+          <span>r星吃瓜每日大赛</span>
+        </div>
+        <p class="foot-pos">每天把 Rockstar 相关爆料拉回可核对的原文与时间戳，用赛果告诉玩家哪条值得继续等。</p>
+        <p style="font-size:12.8px;color:#8d8371">全部条目为社区示例数据，名称与时间为演示用，不对应真实事件。</p>
+      </div>
+      <div class="foot-col">
+        <h4>内容频道</h4>
+        <a href="/#picks">官方公告原文</a>
+        <a href="/#latest">版本更新与热修</a>
+        <a href="/#deep">爆料可信度评级</a>
+        <a href="/#comments">玩家争议与吐槽</a>
+      </div>
+      <div class="foot-col">
+        <h4>工具与规则</h4>
+        <a href="/#guide">四步核证指南</a>
+        <a href="/#rank">赛果计分规则</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#timeline">事件时间线</a>
+      </div>
+      <div class="foot-col">
+        <h4>参与方式</h4>
+        <a href="/#comments">在评论区贴证据</a>
+        <a href="/#tags">按关键词检索</a>
+        <a href="/#overview">查看今日速览</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 r星吃瓜每日大赛 · 示例站点内容用于演示</span>
+      <span>页面更新：11 月 8 日 09:12 · 对应新增条目“公告日期误写”</span>
+    </div>
+  </div>
+</footer>
+
+<button class="top-btn" id="topBtn" type="button" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  var menuBtn=document.getElementById('menuBtn');
+  var nav=document.getElementById('mainnav');
+  if(menuBtn&&nav){
+    menuBtn.addEventListener('click',function(){
+      var open=nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    nav.addEventListener('click',function(e){
+      if(e.target.tagName==='A'&&window.innerWidth<=980){
+        nav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape'&&nav.classList.contains('open')){
+        nav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+        menuBtn.focus();
+      }
+    });
+  }
+
+  var q=document.getElementById('q');
+  var btn=document.getElementById('doSearch');
+  var fb=document.getElementById('feedback');
+  function runSearch(){
+    var kw=(q&&q.value||'').trim().toLowerCase();
+    if(!kw){fb.textContent='请输入要查找的爆料词，例如“工单”“延期”。';fb.classList.add('show');return;}
+    var items=document.querySelectorAll('h2,h3,.tight-list a,.cat-index a,.tag-cloud a,summary,.cmt');
+    var hits=[];
+    items.forEach(function(el){
+      if(!el.closest('.search')&&el.textContent.toLowerCase().indexOf(kw)>-1){
+        var t=el.textContent.trim().replace(/\s+/g,' ');
+        hits.push(t.length>28?t.slice(0,28)+'…':t);
+      }
+    });
+    if(hits.length===0){
+      fb.textContent='没有找到与“'+kw+'”相关的条目，换个词试试。';
+    }else{
+      fb.textContent='命中 '+hits.length+' 条：'+hits.slice(0,3).join(' / ');
+    }
+    fb.classList.add('show');
+  }
+  if(btn)btn.addEventListener('click',runSearch);
+  if(q)q.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();runSearch();}});
+
+  var topBtn=document.getElementById('topBtn');
+  function onScroll(){
+    if(window.scrollY>500){topBtn.classList.add('show');}else{topBtn.classList.remove('show');}
+    var sections=document.querySelectorAll('section[id]');
+    var links=document.querySelectorAll('#sideNav a');
+    var cur='';
+    sections.forEach(function(s){
+      var r=s.getBoundingClientRect();
+      if(r.top<=160)cur=s.id;
+    });
+    links.forEach(function(a){
+      a.classList.toggle('active',a.getAttribute('href')==='/# '+cur || a.getAttribute('href')==='/#'+cur);
+    });
+  }
+  if(topBtn)topBtn.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+</body>
+                                       </html>
